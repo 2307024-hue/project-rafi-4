@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YafiMart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="space-y-24 bg-white">
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-blue-500 to-purple-700 text-white p-4 sticky top-0 z-10 shadow">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">YafiMart</h1>
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:underline">Beranda</a>
+        <a href="produk.html" class="hover:underline">Produk</a>
+        <a href="ulasan.html" class="hover:underline">Ulasan</a>
+      </nav>
+      <!-- Tombol menu hp -->
+      <button id="menuBtn" class="md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <!-- Menu dropdown mobile -->
+    <div id="mobileMenu" class="hidden flex-col space-y-2 mt-3 md:hidden">
+      <a href="index.html" class="bg-blue-500 py-2">Beranda</a>
+      <a href="produk.html" class="bg-blue-500 py-2">Produk</a>
+      <a href="ulasan.html" class="bg-blue-500 py-2">Ulasan</a>
+    </div>
+  </header>
+
+    <!-- Hero -->
+    <div class="flex flex-col-reverse lg:flex-row items-center justify-between px-6 py-16 mx-auto max-w-screen-xl gap-10">
+  <!-- Teks -->
+  <div class="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
+    <h1 class="text-4xl lg:text-5xl font-semibold text-gray-700">
+      Selamat datang di <span class="text-blue-600 font-bold">YafiMart</span>
+    </h1>
+    <p class="text-gray-600 text-lg">
+      Temukan Produk Favoritmu! Jelajahi koleksi lengkap produk berkualitas dengan harga terbaik.
+      Belanja sekarang dan rasakan pengalaman belanja yang menyenangkan!
+    </p>
+    <a href="produk.html" class="inline-block px-5 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition">
+      Lihat Produk
+    </a>
+  </div>
+
+  <!-- Gambar -->
+  <div class="w-full lg:w-3/4 flex justify-center">
+    <img src="https://images.unsplash.com/photo-1674027392857-9aed6e8ecab9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1332"
+      alt="hero"
+      class="rounded-2xl shadow-lg w-full max-w-md object-cover">
+  </div>
+</div>
+
+
+  <!-- Konten Dinamis -->
+  <main id="content" class="flex-grow container mx-auto p-6"></main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 py-6 mb-0">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 px-4 mx-auto max-w-screen-xl items-start mb-6">
+      <div class="flex flex-col items-start mb-4 lg:mb-0">
+        <h1 class="text-2xl font-semibold text-white">YafiMart</h1>
+        <p class="text-white mt-2">Online Shop Terpercaya</p>
+      </div>
+      <div class="flex flex-col items-start mb-4 lg:mb-0">
+        <h1 class="text-lg font-semibold text-white">Menu</h1>
+        <ul>
+          <li class="text-white mt-2"><a href="index.html">Beranda</a></li>
+          <li class="text-white mt-2"><a href="produk.html">Produk</a></li>
+          <li class="text-white mt-2"><a href="ulasan.html">Ulasan</a></li>
+        </ul>
+      </div>
+      <div class="flex flex-col items-start mb-4 lg:mb-0 ">
+        <h1 class="text-lg font-semibold text-white">Hubungi Kami</h1>
+        <p class="text-white mt-2">Telepon: 082128765521</p>
+        <p class="text-white mt-2">Email: YafiMart@gmail.com</p>
+      </div>
+    </div>
+    <div class="container mx-auto px-4">
+      <p class="text-center text-white">&copy; 2025 YafiMart. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    // Data ulasan awal
+    let ulasanList = [
+      { nama: "Rina", rating: 5, komentar: "Produk skincare-nya bagus banget, bikin kulit halus dan cerah!" },
+      { nama: "Andi", rating: 4, komentar: "Sepatu sport-nya nyaman banget dipakai jogging tiap pagi." },
+      { nama: "Lina", rating: 5, komentar: "Pelayanan cepat, motor dikirim sesuai pesanan, puas banget!" },
+      { nama: "Bagas", rating: 4, komentar: "Mobil SUV-nya mantap, kondisi bagus dan pengiriman cepat." }
+    ];
+
+    // Fungsi tampilkan halaman
+    function showPage(page) {
+      const content = document.getElementById('content');
+
+      if (page === 'home') {
+      if (page === 'ulasan') {
+        renderUlasanPage();
+      }
+
+      window.scrollTo(0, 0); // Scroll ke atas setiap ganti halaman
+    }
+
+    // Render halaman ulasan dengan form
+    function renderUlasanPage() {
+      const content = document.getElementById('content');
+
+      content.innerHTML = `
+        <section>
+          <h2 class="text-3xl font-semibold text-gray-800 text-center mb-8">Ulasan Pembeli</h2>
+
+          <!-- Form tambah ulasan -->
+          <form id="formUlasan" class="bg-white shadow-md rounded-lg p-6 mb-6 max-w-xl mx-auto">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Tulis Ulasan Kamu</h3>
+            <input id="nama" type="text" placeholder="Nama Anda" class="w-full mb-3 p-2 border rounded" required>
+            <select id="rating" class="w-full mb-3 p-2 border rounded" required>
+              <option value="">Pilih Rating</option>
+              <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+              <option value="4">⭐⭐⭐⭐ (4)</option>
+              <option value="3">⭐⭐⭐ (3)</option>
+              <option value="2">⭐⭐ (2)</option>
+              <option value="1">⭐ (1)</option>
+            </select>
+            <textarea id="komentar" rows="3" placeholder="Tulis komentar..." class="w-full mb-4 p-2 border rounded" required></textarea>
+            <button type="submit" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded hover:from-blue-700 hover:to-blue-800 w-full">Kirim Ulasan</button>
+          </form>
+
+          <!-- Daftar ulasan -->
+          <div id="daftarUlasan" class="space-y-6"></div>
+        </section>
+      `;
+
+      renderDaftarUlasan();
+
+      // Event kirim form
+      document.getElementById('formUlasan').addEventListener('submit', e => {
+        e.preventDefault();
+        const nama = document.getElementById('nama').value;
+        const rating = parseInt(document.getElementById('rating').value);
+        const komentar = document.getElementById('komentar').value;
+
+        if (nama && rating && komentar) {
+          ulasanList.unshift({ nama, rating, komentar });
+          renderDaftarUlasan();
+          e.target.reset();
+        }
+      });
+    }
+
+    // Tampilkan daftar ulasan
+    function renderDaftarUlasan() {
+      const container = document.getElementById('daftarUlasan');
+      container.innerHTML = ulasanList.map(u => `
+        <div class="bg-white shadow rounded-lg p-5">
+          <h3 class="font-semibold text-lg text-blue-600">${u.nama} - ${'⭐'.repeat(u.rating)}</h3>
+          <p class="text-gray-600 mt-2">${u.komentar}</p>
+        </div>
+      `).join('');
+    }
+
+    // Toggle menu mobile
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Default tampil halaman beranda
+    showPage('home');
+  </script>
+
+</body>
+</html>
