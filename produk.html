@@ -35,17 +35,18 @@
 
   <!-- Konten Produk -->
   <main class="flex-grow container mx-auto p-6">
-    <section>
-      <h2 class="text-3xl font-semibold text-gray-800 text-center mb-8">Daftar Produk</h2>
+    <section class="transition-all duration-1000 ease-out">
+      <h2 class="text-3xl font-semibold text-gray-800 text-center mb-8 transition-colors duration-300 hover:text-blue-600">Daftar Produk</h2>
 
       <!-- Filter Kategori -->
       <div class="flex flex-wrap justify-center gap-2 mb-8">
-        <button class="kategori-btn bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded hover:from-blue-700 hover:to-blue-800 transition" data-kategori="semua">Semua</button>
-        <button class="kategori-btn bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 transition" data-kategori="motor">Motor</button>
-        <button class="kategori-btn bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 transition" data-kategori="mobil">Mobil</button>
-        <button class="kategori-btn bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 transition" data-kategori="fashion">Fashion</button>
-        <button class="kategori-btn bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 transition" data-kategori="skincare">Skincare</button>
-        <button class="kategori-btn bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 transition" data-kategori="parfum">Parfum</button>
+        <button class="kategori-btn bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded hover:from-blue-700 hover:to-blue-800 hover:scale-105 transition-all duration-300 hover:shadow-lg hover:animate-bounce" data-kategori="semua">Semua</button>
+        <button class="kategori-btn bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 hover:scale-105 transition-all duration-300 hover:shadow-md" data-kategori="motor">Motor</button>
+        <button class="kategori-btn bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 hover:scale-105 transition-all duration-300 hover:shadow-md" data-kategori="mobil">Mobil</button>
+        <button class="kategori-btn bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 hover:scale-105 transition-all duration-300 hover:shadow-md" data-kategori="fashion">Fashion</button>
+        <button class="kategori-btn bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 hover:scale-105 transition-all duration-300 hover:shadow-md" data-kategori="skincare">Skincare</button>
+        <button class="kategori-btn bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 hover:scale-105 transition-all duration-300 hover:shadow-md" data-kategori="parfum">Parfum</button>
+        <button class="kategori-btn bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 hover:scale-105 transition-all duration-300 hover:shadow-md" data-kategori="boneka">Boneka</button>
       </div>
 
       <div id="produkGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -72,8 +73,8 @@
       </div>
       <div class="flex flex-col items-start mb-4 lg:mb-0 ">
         <h1 class="text-lg font-semibold text-white">Hubungi Kami</h1>
-        <p class="text-white mt-2">Telepon: 08212876552</p>
-        <p class="text-white mt-2">Email: tokoku@gmail.com</p>
+        <p class="text-white mt-2">Telepon: 082128765521</p>
+        <p class="text-white mt-2">Email: YafiMart@gmail.com</p>
       </div>
     </div>
     <div class="container mx-auto px-4">
@@ -84,24 +85,27 @@
   <script>
     // Data produk dengan kategori
     const produkList = [
-      { nama: "Motor Sport", harga: "Rp 25.000.000", kategori: "motor", img: "jss/img/Motor Sport.jpg" },
-      { nama: "Motor Cruiser", harga: "Rp 30.000.000", kategori: "motor", img: "jss/img/Motor Cruiser.jpg" },
-      { nama: "Motor Matic", harga: "Rp 15.000.000", kategori: "motor", img: "jss/img/Motor Matic.jpeg" },
-      { nama: "Mobil SUV", harga: "Rp 250.000.000", kategori: "mobil", img: "jss/img/Mobil SUV.jpeg" },
-      { nama: "Mobil Sedan", harga: "Rp 200.000.000", kategori: "mobil", img: "jss/img/Mobil Sedan.jpeg" },
-      { nama: "Mobil Hatchback", harga: "Rp 180.000.000", kategori: "mobil", img: "jss/img/Mobil Hatchback.jpeg" },
-      { nama: "Jam Tangan", harga: "Rp 800.000", kategori: "fashion", img: "jss/img/jam Tangan.jpeg" },
-      { nama: "Skincare Set", harga: "Rp 350.000", kategori: "skincare", img: "jss/img/Skincare Set.jpeg" },
-      { nama: "Masker Wajah", harga: "Rp 50.000", kategori: "skincare", img: "jss/img/Masker Wajah.jpeg" },
-      { nama: "Serum Vitamin C", harga: "Rp 120.000", kategori: "skincare", img: "jss/img/Serum Vitamin C.jpeg" },
-      { nama: "Sepatu Sport", harga: "Rp 550.000", kategori: "fashion", img: "jss/img/Sepatu Sport.jpeg" },
-      { nama: "Jaket Kulit", harga: "Rp 450.000", kategori: "fashion", img: "jss/img/Jaket Kulit.jpeg" },
-      { nama: "Baju Casual", harga: "Rp 150.000", kategori: "fashion", img: "jss/img/Baju Casual.jpeg" },
-      { nama: "Topi Trucker", harga: "Rp 80.000", kategori: "fashion", img: "jss/img/Topi Trucker.jpeg" },
+      { nama: "Motor Sport", harga: "Rp 25.000.000", kategori: "motor", img: "jss/img/Motor%20Sport.jpg" },
+      { nama: "Motor Cruiser", harga: "Rp 30.000.000", kategori: "motor", img: "jss/img/Motor%20Cruiser.jpg" },
+      { nama: "Motor Matic", harga: "Rp 15.000.000", kategori: "motor", img: "jss/img/Motor%20Matic.jpeg" },
+      { nama: "Motor Filano", harga: "Rp 20.000.000", kategori: "motor", img: "jss/img/filano.jpg" },
+      { nama: "Mobil SUV", harga: "Rp 250.000.000", kategori: "mobil", img: "jss/img/Mobil%20SUV.jpeg" },
+      { nama: "Mobil Sedan", harga: "Rp 200.000.000", kategori: "mobil", img: "jss/img/Mobil%20Sedan.jpeg" },
+      { nama: "Mobil Hatchback", harga: "Rp 180.000.000", kategori: "mobil", img: "jss/img/Mobil%20Hatchback.jpeg" },
+      { nama: "Jam Tangan", harga: "Rp 800.000", kategori: "fashion", img: "jss/img/jam%20Tangan.jpeg" },
+      { nama: "Skincare Set", harga: "Rp 350.000", kategori: "skincare", img: "jss/img/Skincare%20Set.jpeg" },
+      { nama: "Masker Wajah", harga: "Rp 50.000", kategori: "skincare", img: "jss/img/Masker%20Wajah.jpeg" },
+      { nama: "Serum Vitamin C", harga: "Rp 120.000", kategori: "skincare", img: "jss/img/Serum%20Vitamin%20C.jpeg" },
+      { nama: "Sepatu Sport", harga: "Rp 550.000", kategori: "fashion", img: "jss/img/Sepatu%20Sport.jpeg" },
+      { nama: "Jaket Kulit", harga: "Rp 450.000", kategori: "fashion", img: "jss/img/Jaket%20Kulit.jpeg" },
+      { nama: "Baju Casual", harga: "Rp 150.000", kategori: "fashion", img: "jss/img/Baju%20Casual.jpeg" },
+      { nama: "Topi Trucker", harga: "Rp 80.000", kategori: "fashion", img: "jss/img/Topi%20Trucker.jpeg" },
       { nama: "Sneakers", harga: "Rp 600.000", kategori: "fashion", img: "jss/img/Sneakers.jpeg" },
-      { nama: "Parfum Pria", harga: "Rp 250.000", kategori: "parfum", img: "jss/img/Parfum Pria.jpeg" },
-      { nama: "Parfum Wanita", harga: "Rp 300.000", kategori: "parfum", img: "jss/img/Parfum Wanita.jpeg" },
-      { nama: "Parfum Unisex", harga: "Rp 280.000", kategori: "parfum", img: "jss/img/Parfum unisex.jpeg" },
+      { nama: "Parfum Pria", harga: "Rp 250.000", kategori: "parfum", img: "jss/img/Parfum%20Pria.jpeg" },
+      { nama: "Parfum Wanita", harga: "Rp 300.000", kategori: "parfum", img: "jss/img/parfum%20cewe.jpeg" },
+      { nama: "Parfum Unisex", harga: "Rp 280.000", kategori: "parfum", img: "jss/img/Parfum%20unisex.jpeg" },
+      { nama: "Boneka Nailong", harga: "Rp 50.000", kategori: "boneka", img: "jss/img/nailong.jpg" },
+      { nama: "Boneka Beruang", harga: "Rp 60.000", kategori: "boneka", img: "jss/img/beluang.jpeg" },
     ];
 
     // Fungsi untuk render produk
@@ -109,21 +113,19 @@
       const grid = document.getElementById('produkGrid');
       const filteredProduk = filterKategori === 'semua' ? produkList : produkList.filter(p => p.kategori === filterKategori);
       const produkToShow = showAll ? filteredProduk : filteredProduk.slice(0, 10); // Tampilkan maksimal 10 produk
-      grid.innerHTML = produkToShow.map(p => `
-        <div class="bg-white shadow rounded-lg p-4 text-center">
-          <img src="${p.img}" alt="${p.nama}" class="w-full h-32 object-contain rounded mb-2">
-          <h3 class="font-semibold">${p.nama}</h3>
-          <p class="text-gray-600 mb-2">${p.harga}</p>
-          <button class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-3 py-1 rounded hover:from-blue-700 hover:to-blue-800 transition-transform duration-200 active:scale-95 hover:shadow-lg" onclick="this.classList.add('animate-pulse'); setTimeout(() => this.classList.remove('animate-pulse'), 300)">Beli</button>
-        </div>
-      `).join('');
+      grid.innerHTML = produkToShow.map(p => '<div class="bg-white shadow rounded-lg p-4 text-center transition-all duration-500 hover:scale-105 hover:rotate-1 hover:shadow-2xl hover:bg-gradient-to-br hover:from-white hover:to-blue-50 hover:ring-2 hover:ring-blue-300 hover:ring-opacity-50">' +
+        '<img src="' + p.img + '" alt="' + p.nama + '" class="w-full h-32 object-contain rounded mb-2 transition-transform duration-300 hover:scale-110">' +
+        '<h3 class="font-semibold">' + p.nama + '</h3>' +
+        '<p class="text-gray-600 mb-2">' + p.harga + '</p>' +
+        '<button class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-3 py-1 rounded hover:from-blue-700 hover:to-blue-800 hover:scale-105 transition-all duration-300 hover:shadow-lg" onclick="this.classList.add(\'animate-pulse\'); setTimeout(() => this.classList.remove(\'animate-pulse\'), 300)">Beli</button>' +
+        '</div>').join('');
 
       // Tambahkan tombol "Lihat Selengkapnya" jika ada produk yang tersembunyi
       if (filteredProduk.length > 10 && !showAll) {
         grid.innerHTML += `
           <div class="col-span-full text-center mt-6">
-            <button id="lihatSelengkapnya" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2 rounded hover:from-blue-700 hover:to-blue-800 transition">Lihat Selengkapnya</button>
-            <button id="kembaliAwal" class="bg-gray-600 text-white px-6 py-2 rounded hover:bg-gray-700 transition ml-4" style="display: none;">Kembali ke Tampilan Awal</button>
+            <button id="lihatSelengkapnya" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2 rounded hover:from-blue-700 hover:to-blue-800 transition hover:scale-105 hover:shadow-lg">Lihat Selengkapnya</button>
+            <button id="kembaliAwal" class="bg-gray-600 text-white px-6 py-2 rounded hover:bg-gray-700 transition ml-4 hover:scale-105 hover:shadow-md" style="display: none;">Kembali ke Tampilan Awal</button>
           </div>
         `;
         document.getElementById('lihatSelengkapnya').addEventListener('click', () => {
@@ -133,39 +135,58 @@
       } else if (showAll) {
         grid.innerHTML += `
           <div class="col-span-full text-center mt-6">
-            <button id="kembaliAwal" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2 rounded hover:from-blue-700 hover:to-blue-800 transition">Kembali ke Tampilan Awal</button>
+            <button id="kembaliAwal" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2 rounded hover:from-blue-700 hover:to-blue-800 transition hover:scale-105 hover:shadow-lg">Kembali ke Tampilan Awal</button>
           </div>
         `;
         document.getElementById('kembaliAwal').addEventListener('click', () => renderProduk(filterKategori, false));
       }
     }
 
-    // Event listener untuk filter kategori
-    document.querySelectorAll('.kategori-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Reset semua tombol ke style default
-        document.querySelectorAll('.kategori-btn').forEach(b => {
-          b.classList.remove('bg-blue-600', 'text-white');
-          b.classList.add('bg-gray-200', 'text-gray-800');
-        });
-        // Set tombol aktif
-        btn.classList.remove('bg-gray-200', 'text-gray-800');
-        btn.classList.add('bg-blue-600', 'text-white');
 
-        const kategori = btn.getAttribute('data-kategori');
-        renderProduk(kategori);
-      });
-    });
-
-    // Toggle menu mobile
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
 
     // Render produk saat halaman dimuat
-    renderProduk();
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProduk();
+
+      // Pastikan event listener untuk kategori tombol terpasang
+      document.querySelectorAll('.kategori-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Reset semua tombol ke style default
+          document.querySelectorAll('.kategori-btn').forEach(b => {
+            b.classList.remove('bg-blue-600', 'text-white');
+            b.classList.add('bg-gray-200', 'text-gray-800');
+          });
+          // Set tombol aktif
+          btn.classList.remove('bg-gray-200', 'text-gray-800');
+          btn.classList.add('bg-blue-600', 'text-white');
+
+          const kategori = btn.getAttribute('data-kategori');
+          renderProduk(kategori);
+        });
+      });
+
+      // Toggle menu mobile
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (menuBtn) {
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('max-h-0', 'transition-all', 'duration-300');
+            setTimeout(() => mobileMenu.classList.replace('max-h-0', 'max-h-40'), 10);
+          } else {
+            mobileMenu.classList.replace('max-h-40', 'max-h-0');
+          }
+        });
+      }
+
+      // Fade in section on load
+      const section = document.querySelector('main section');
+      if (section) {
+        section.classList.remove('opacity-0', 'translate-y-10');
+        section.classList.add('opacity-100', 'translate-y-0');
+      }
+    });
   </script>
 
 </body>

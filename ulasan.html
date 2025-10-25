@@ -35,14 +35,14 @@
 
   <!-- Konten Ulasan -->
   <main class="flex-grow container mx-auto p-6">
-    <section>
-      <h2 class="text-3xl font-semibold text-gray-800 text-center mb-8">Ulasan Pembeli</h2>
+    <section class="opacity-0 transform translate-y-10 transition-all duration-1000 ease-out">
+      <h2 class="text-3xl font-semibold text-gray-800 text-center mb-8 transition-colors duration-300 hover:text-blue-600">Ulasan Pembeli</h2>
 
       <!-- Form tambah ulasan -->
-      <form id="formUlasan" class="bg-white shadow-md rounded-lg p-6 mb-6 max-w-xl mx-auto">
+      <form id="formUlasan" class="bg-white shadow-md rounded-lg p-6 mb-6 max-w-xl mx-auto transition-transform duration-300 hover:scale-105 hover:shadow-lg">
         <h3 class="text-xl font-semibold text-gray-700 mb-4">Tulis Ulasan Kamu</h3>
-        <input id="nama" type="text" placeholder="Nama Anda" class="w-full mb-3 p-2 border rounded" required>
-        <select id="rating" class="w-full mb-3 p-2 border rounded" required>
+        <input id="nama" type="text" placeholder="Nama Anda" class="w-full mb-3 p-2 border rounded transition-all duration-300 focus:ring-2 focus:ring-blue-300 focus:border-blue-500" required>
+        <select id="rating" class="w-full mb-3 p-2 border rounded transition-all duration-300 focus:ring-2 focus:ring-blue-300 focus:border-blue-500" required>
           <option value="">Pilih Rating</option>
           <option value="5">⭐⭐⭐⭐⭐ (5)</option>
           <option value="4">⭐⭐⭐⭐ (4)</option>
@@ -50,8 +50,8 @@
           <option value="2">⭐⭐ (2)</option>
           <option value="1">⭐ (1)</option>
         </select>
-        <textarea id="komentar" rows="3" placeholder="Tulis komentar..." class="w-full mb-4 p-2 border rounded" required></textarea>
-        <button type="submit" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded hover:from-blue-700 hover:to-blue-800 w-full transition-transform duration-200 active:scale-95 hover:shadow-lg" onclick="this.classList.add('animate-pulse'); setTimeout(() => this.classList.remove('animate-pulse'), 300)">Kirim Ulasan</button>
+        <textarea id="komentar" rows="3" placeholder="Tulis komentar..." class="w-full mb-4 p-2 border rounded transition-all duration-300 focus:ring-2 focus:ring-blue-300 focus:border-blue-500" required></textarea>
+        <button type="submit" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded hover:from-blue-700 hover:to-blue-800 hover:scale-105 transition-all duration-300 w-full hover:shadow-lg" onclick="this.classList.add('animate-pulse'); setTimeout(() => this.classList.remove('animate-pulse'), 300)">Kirim Ulasan</button>
       </form>
 
       <!-- Daftar ulasan -->
@@ -76,7 +76,7 @@
       </div>
       <div class="flex flex-col items-start mb-4 lg:mb-0 ">
         <h1 class="text-lg font-semibold text-white">Hubungi Kami</h1>
-        <p class="text-white mt-2">Telepon: 08212876552</p>
+        <p class="text-white mt-2">Telepon: 082128765521</p>
         <p class="text-white mt-2">Email: YafiMart@gmail.com</p>
       </div>
     </div>
@@ -91,21 +91,31 @@
       { nama: "Rina", rating: 5, komentar: "Produk skincare-nya bagus banget, bikin kulit halus dan cerah!", gambar: "jss/img/rina.jpg" },
       { nama: "Andi", rating: 4, komentar: "Parfum nya wangi dan tahan lama, cocok untuk outdoor.", gambar: "jss/img/andi.jpg" },
       { nama: "Lina", rating: 5, komentar: "Masker Wajah nya manjur, muka saya terlihat ada perubahan setelah memakainya ", gambar: "jss/img/lina.jpg" },
-      { nama: "Bagas", rating: 4, komentar: "Serum vit C nya bagus, cocok dan sesuai pesanan, puas banget !.", gambar: "jss/img/bagas.jpg" }
+      { nama: "Bagas", rating: 4, komentar: "Serum vit C nya bagus, cocok dan sesuai pesanan, puas banget !.", gambar: "jss/img/bagas.jpg" },
+      { nama: "Adik", rating: 5, komentar: "Boneka sama motor kesukaan aku lucu sekali aku suka", gambar: "jss/img/adik.jpg" }
     ];
 
     // Render daftar ulasan
     function renderDaftarUlasan() {
       const container = document.getElementById('daftarUlasan');
       container.innerHTML = ulasanList.map(u => `
-        <div class="bg-white shadow rounded-lg p-5">
+        <div class="bg-white shadow rounded-lg p-5 opacity-0 transition-all duration-500 hover:scale-105 hover:rotate-1 hover:shadow-xl">
           <div class="flex items-center mb-3">
-            <img src="${u.gambar}" alt="Foto ulasan" class="w-12 h-12 rounded-full mr-3 object-cover">
+            <img src="${u.gambar}" alt="Foto ulasan" class="w-12 h-12 rounded-full mr-3 object-cover transition-transform duration-300 hover:scale-110">
             <h3 class="font-semibold text-lg text-blue-600">${u.nama} - ${'⭐'.repeat(u.rating)}</h3>
           </div>
           <p class="text-gray-600 mt-2">${u.komentar}</p>
         </div>
       `).join('');
+
+      // Fade in ulasan
+      const ulasanElements = container.querySelectorAll('div');
+      ulasanElements.forEach((el, index) => {
+        setTimeout(() => {
+          el.classList.remove('opacity-0');
+          el.classList.add('opacity-100');
+        }, index * 200);
+      });
     }
 
     // Event kirim form
@@ -127,6 +137,19 @@
     const mobileMenu = document.getElementById('mobileMenu');
     menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
+      if (!mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('max-h-0', 'transition-all', 'duration-300');
+        setTimeout(() => mobileMenu.classList.replace('max-h-0', 'max-h-40'), 10);
+      } else {
+        mobileMenu.classList.replace('max-h-40', 'max-h-0');
+      }
+    });
+
+    // Fade in section on load
+    window.addEventListener('load', () => {
+      const section = document.querySelector('main section');
+      section.classList.remove('opacity-0', 'translate-y-10');
+      section.classList.add('opacity-100', 'translate-y-0');
     });
 
     // Render ulasan awal
